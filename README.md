@@ -1,129 +1,129 @@
 # DevRoast 🔥
 
-A humorous code roasting platform where your code gets critiqued with a roast score. Built during **Rocketseat's NLW (Next Level Week)** event.
+Uma plataforma divertida de crítica de código onde seu código recebe uma avaliação com um "roast score". Construída durante o evento **NLW (Next Level Week)** da Rocketseat.
 
-## About
+## Sobre
 
-DevRoast is an interactive web application that allows developers to paste their code and receive funny, constructive feedback with a "roast score" that evaluates code quality in a fun and entertaining way. The platform combines humor with actual code analysis to help developers learn and improve.
+DevRoast é uma aplicação web interativa que permite aos desenvolvedores colar seu código e receber feedback engraçado e construtivo com um "roast score" que avalia a qualidade do código de forma divertida e entretida. A plataforma combina humor com análise real de código para ajudar desenvolvedores a aprender e melhorar.
 
-Built with modern web technologies during Rocketseat's educational event.
+Construída com tecnologias web modernas durante o evento educacional da Rocketseat.
 
-## Features
+## Funcionalidades
 
-✨ **Interactive Code Editor**
-- Paste and edit your code directly in the browser
-- Real-time display with line numbers
-- Terminal-like UI for a hacker aesthetic
+✨ **Editor de Código Interativo**
+- Cole e edite seu código diretamente no navegador
+- Exibição em tempo real com números de linha
+- Interface estilo terminal para uma estética hacker
 
-🎯 **Roast Scoring System**
-- Get a "roast score" (0-10) for your code
-- Humorous yet constructive feedback
-- Learn from your mistakes through entertainment
+🎯 **Sistema de Roast Score**
+- Obtenha um "roast score" (0-10) para seu código
+- Feedback engraçado mas construtivo
+- Aprenda com seus erros através do entretenimento
 
-🏆 **Shame Leaderboard**
-- View the worst code submitted to the platform
-- Compete to get the lowest (or highest?) scores
-- See what other developers got roasted for
+🏆 **Placar da Vergonha**
+- Veja o pior código enviado para a plataforma
+- Compita para conseguir as piores (ou melhores?) pontuações
+- Veja pelo que outros desenvolvedores foram criticados
 
-🎨 **Modern UI/UX**
-- Responsive design for desktop and mobile
-- Dark mode support
-- Clean, developer-friendly interface
+🎨 **Interface Moderna**
+- Design responsivo para desktop e mobile
+- Suporte a modo escuro
+- Interface limpa e amigável para desenvolvedores
 
-## Tech Stack
+## Stack de Tecnologia
 
-- **Frontend Framework**: [Next.js 16](https://nextjs.org/) with React 19
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) + [Tailwind Variants](https://www.tailwind-variants.org/)
-- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
-- **Components**: [Radix UI](https://www.radix-ui.com/), [Base UI](https://base-ui.com/), [Lucide Icons](https://lucide.dev/)
-- **Code Highlighting**: [Shiki](https://shiki.matsu.io/)
-- **Code Quality**: [Biome](https://biomejs.dev/), [ESLint](https://eslint.org/)
+- **Framework Frontend**: [Next.js 16](https://nextjs.org/) com React 19
+- **Estilização**: [Tailwind CSS 4](https://tailwindcss.com/) + [Tailwind Variants](https://www.tailwind-variants.org/)
+- **Linguagem**: [TypeScript 5](https://www.typescriptlang.org/)
+- **Componentes**: [Radix UI](https://www.radix-ui.com/), [Base UI](https://base-ui.com/), [Lucide Icons](https://lucide.dev/)
+- **Destaque de Código**: [Shiki](https://shiki.matsu.io/)
+- **Qualidade de Código**: [Biome](https://biomejs.dev/), [ESLint](https://eslint.org/)
 
-## Getting Started
+## Iniciando
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+### Pré-requisitos
+- Node.js 18+
+- npm ou yarn
 
-### Installation
+### Instalação
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/devroast.git
+# Clone o repositório
+git clone https://github.com/seuusuario/devroast.git
 cd devroast
 
-# Install dependencies
+# Instale as dependências
 npm install
 
-# Start the development server
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver a aplicação.
 
-## Development
+## Desenvolvimento
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm start        # Start production server
-npm run formate  # Format code with Biome
-npm run lint     # Run ESLint checks
+npm run dev      # Inicia o servidor de desenvolvimento
+npm run build    # Build para produção
+npm start        # Inicia o servidor de produção
+npm run formate  # Formata código com Biome
+npm run lint     # Executa verificações com ESLint
 ```
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 src/
-├── app/              # Next.js pages and routing
-├── components/       # React components
-│   ├── home/        # Home page components
-│   └── ui/          # Reusable UI components
-└── lib/             # Utilities and helpers
+├── app/              # Páginas e roteamento do Next.js
+├── components/       # Componentes React
+│   ├── home/        # Componentes da página inicial
+│   └── ui/          # Componentes UI reutilizáveis
+└── lib/             # Utilitários e helpers
 ```
 
-For detailed development guidelines, see [AGENTS.md](./AGENTS.md).
+Para diretrizes de desenvolvimento detalhadas, veja [AGENTS.md](./AGENTS.md).
 
-## How to Use
+## Como Usar
 
-1. **Visit the Home Page** - You'll see the code editor interface
-2. **Paste Your Code** - Click on the editor and paste any code snippet
-3. **Click "Roast My Code"** - Submit your code for roasting
-4. **Get Your Score** - Receive a funny and constructive roast with a score
-5. **Check the Leaderboard** - See how your code stacks up against others
+1. **Visite a Página Inicial** - Você verá a interface do editor de código
+2. **Cole Seu Código** - Clique no editor e cole qualquer snippet de código
+3. **Clique em "Roast My Code"** - Envie seu código para crítica
+4. **Obtenha Sua Pontuação** - Receba uma crítica engraçada e construtiva com uma pontuação
+5. **Verifique o Placar** - Veja como seu código se compara com outros
 
-## Built During NLW
+## Construído Durante a NLW
 
-This project was built during **Rocketseat's NLW (Next Level Week)** - an intensive, free online event focused on teaching full-stack development with modern technologies.
+Este projeto foi construído durante o **NLW (Next Level Week)** da Rocketseat - um evento online intensivo e gratuito focado em ensinar desenvolvimento full-stack com tecnologias modernas.
 
-🎓 [Learn more about Rocketseat](https://www.rocketseat.com.br/)
+🎓 [Saiba mais sobre a Rocketseat](https://www.rocketseat.com.br/)
 
-## Future Roadmap
+## Roadmap Futuro
 
-- [ ] API integration for AI-powered code roasting
-- [ ] User authentication and history
-- [ ] Code roast sharing and comments
-- [ ] Language-specific roasting
-- [ ] Dark/Light mode toggle
-- [ ] Export roasts as images
+- [ ] Integração com API para crítica de código com IA
+- [ ] Autenticação de usuário e histórico
+- [ ] Compartilhamento e comentários em roasts
+- [ ] Crítica específica por linguagem
+- [ ] Toggle de modo escuro/claro
+- [ ] Exportar roasts como imagens
 
-## Contributing
+## Contribuindo
 
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
+Contribuições são bem-vindas! Sinta-se livre para:
+- Reportar bugs
+- Sugerir novas funcionalidades
+- Enviar pull requests
 
-## License
+## Licença
 
-MIT License - Feel free to use this project for learning and personal use.
+MIT License - Sinta-se livre para usar este projeto para aprendizado e uso pessoal.
 
-## Connect
+## Conectar
 
-- 👤 [Your GitHub Profile](https://github.com/yourusername)
-- 🐦 [Follow on Twitter](https://twitter.com/yourhandle)
-- 💼 [LinkedIn](https://linkedin.com/in/yourprofile)
+- 👤 [Seu Perfil GitHub](https://github.com/seuusuario)
+- 🐦 [Siga no Twitter](https://twitter.com/seuhandle)
+- 💼 [LinkedIn](https://linkedin.com/in/seuperfil)
 
 ---
 
-Made with ❤️ during Rocketseat's NLW
+Feito com ❤️ durante a NLW da Rocketseat
