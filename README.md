@@ -11,21 +11,25 @@ Construída com tecnologias web modernas durante o evento educacional da Rockets
 ## Funcionalidades
 
 ✨ **Editor de Código Interativo**
+
 - Cole e edite seu código diretamente no navegador
 - Exibição em tempo real com números de linha
 - Interface estilo terminal para uma estética hacker
 
 🎯 **Sistema de Roast Score**
+
 - Obtenha um "roast score" (0-10) para seu código
 - Feedback engraçado mas construtivo
 - Aprenda com seus erros através do entretenimento
 
 🏆 **Placar da Vergonha**
+
 - Veja o pior código enviado para a plataforma
 - Compita para conseguir as piores (ou melhores?) pontuações
 - Veja pelo que outros desenvolvedores foram criticados
 
 🎨 **Interface Moderna**
+
 - Design responsivo para desktop e mobile
 - Suporte a modo escuro
 - Interface limpa e amigável para desenvolvedores
@@ -42,6 +46,7 @@ Construída com tecnologias web modernas durante o evento educacional da Rockets
 ## Iniciando
 
 ### Pré-requisitos
+
 - Node.js 18+
 - npm ou yarn
 
@@ -110,20 +115,12 @@ Este projeto foi construído durante o **NLW (Next Level Week)** da Rocketseat -
 ## Contribuindo
 
 Contribuições são bem-vindas! Sinta-se livre para:
+
 - Reportar bugs
 - Sugerir novas funcionalidades
 - Enviar pull requests
 
-## Licença
-
-MIT License - Sinta-se livre para usar este projeto para aprendizado e uso pessoal.
-
 ## Conectar
 
-- 👤 [Seu Perfil GitHub](https://github.com/seuusuario)
-- 🐦 [Siga no Twitter](https://twitter.com/seuhandle)
-- 💼 [LinkedIn](https://linkedin.com/in/seuperfil)
-
----
-
-Feito com ❤️ durante a NLW da Rocketseat
+- 👤 [Seu Perfil GitHub](https://github.com/JulioCesarClaudino)
+- 💼 [LinkedIn](https://linkedin.com/in/julio-claudino-6998ba291)

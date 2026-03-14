@@ -1,0 +1,340 @@
+{
+  "screen": {
+    "id": "9qwc9",
+    "name": "Screen 1 - Code Input",
+    "type": "frame",
+    "dimensions": {
+      "width": 1440,
+      "layout": "vertical",
+      "clip": true
+    }
+  },
+  "navbar": {
+    "height": 56,
+    "padding": {
+      "horizontal": 40,
+      "vertical": 0
+    },
+    "gap": 24,
+    "layout": "space_between",
+    "logo": {
+      "gap": 8,
+      "prompt": {
+        "text": ">",
+        "font": "JetBrains Mono",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "color": "$accent-green"
+      },
+      "text": {
+        "content": "devroast",
+        "font": "JetBrains Mono",
+        "fontSize": 18,
+        "fontWeight": 500,
+        "color": "$text-primary"
+      }
+    }
+  },
+  "hero": {
+    "padding": {
+      "top": 80,
+      "horizontal": 40
+    },
+    "gap": 32,
+    "title": {
+      "gap": 12,
+      "prompt": {
+        "text": "$",
+        "font": "JetBrains Mono",
+        "fontSize": 36,
+        "fontWeight": 700,
+        "color": "$accent-green"
+      },
+      "text": {
+        "content": "paste your code. get roasted.",
+        "font": "JetBrains Mono",
+        "fontSize": 36,
+        "fontWeight": 700,
+        "color": "$text-primary"
+      }
+    },
+    "subtitle": {
+      "content": "// drop your code below and we'll rate it — brutally honest or full roast mode",
+      "font": "IBM Plex Mono",
+      "fontSize": 14,
+      "color": "$text-secondary"
+    }
+  },
+  "codeInput": {
+    "width": 780,
+    "height": 360,
+    "background": "$bg-input",
+    "border": {
+      "thickness": 1,
+      "color": "$border-primary"
+    },
+    "header": {
+      "height": 40,
+      "buttons": {
+        "close": {
+          "color": "#EF4444",
+          "size": 12
+        },
+        "minimize": {
+          "color": "#F59E0B",
+          "size": 12
+        },
+        "maximize": {
+          "color": "#10B981",
+          "size": 12
+        }
+      }
+    },
+    "lineNumbers": {
+      "width": 48,
+      "background": "$bg-surface",
+      "padding": {
+        "vertical": 16,
+        "horizontal": 12
+      },
+      "gap": 8,
+      "font": "JetBrains Mono",
+      "fontSize": 12,
+      "color": "$text-tertiary"
+    },
+    "codeColumn": {
+      "padding": 16,
+      "gap": 8,
+      "font": "JetBrains Mono",
+      "fontSize": 12
+    },
+    "syntaxHighlight": {
+      "keyword": "$syn-keyword",
+      "operator": "$syn-operator",
+      "function": "$syn-function",
+      "variable": "$syn-variable",
+      "number": "$syn-number",
+      "string": "$syn-string",
+      "property": "$syn-property",
+      "comment": "#8B8B8B"
+    }
+  },
+  "actionsBar": {
+    "width": 780,
+    "layout": "space_between",
+    "gap": 16,
+    "toggle": {
+      "width": 40,
+      "height": 22,
+      "background": "$accent-green",
+      "borderRadius": 11,
+      "padding": {
+        "horizontal": 3,
+        "vertical": 0
+      },
+      "knob": {
+        "width": 16,
+        "height": 16,
+        "background": "#0A0A0A"
+      },
+      "label": {
+        "text": "roast mode",
+        "font": "JetBrains Mono",
+        "fontSize": 13,
+        "color": "$accent-green"
+      }
+    },
+    "submitButton": {
+      "background": "$accent-green",
+      "padding": {
+        "vertical": 10,
+        "horizontal": 24
+      },
+      "text": "$ roast_my_code",
+      "font": "JetBrains Mono",
+      "fontSize": 13,
+      "fontWeight": 500,
+      "color": "#0A0A0A"
+    }
+  },
+  "footerHint": {
+    "gap": 24,
+    "layout": "center",
+    "stats": [
+      {
+        "text": "2,847 codes roasted",
+        "font": "IBM Plex Mono",
+        "fontSize": 12,
+        "color": "$text-tertiary"
+      },
+      {
+        "text": "avg score: 4.2/10",
+        "font": "IBM Plex Mono",
+        "fontSize": 12,
+        "color": "$text-tertiary"
+      }
+    ]
+  },
+  "leaderboard": {
+    "width": 960,
+    "gap": 24,
+    "title": {
+      "prompt": "//",
+      "text": "shame_leaderboard",
+      "font": "JetBrains Mono",
+      "fontSize": 14,
+      "fontWeight": 700,
+      "color": "$text-primary"
+    },
+    "subtitle": {
+      "content": "// the worst code on the internet, ranked by shame",
+      "font": "IBM Plex Mono",
+      "fontSize": 13,
+      "color": "$text-tertiary"
+    },
+    "table": {
+      "header": {
+        "height": 40,
+        "background": "$bg-surface",
+        "padding": {
+          "horizontal": 20,
+          "vertical": 0
+        },
+        "columns": [
+          {
+            "label": "#",
+            "width": 50
+          },
+          {
+            "label": "score",
+            "width": 70
+          },
+          {
+            "label": "code",
+            "width": "fill_container"
+          },
+          {
+            "label": "lang",
+            "width": 100
+          }
+        ],
+        "font": "JetBrains Mono",
+        "fontSize": 12,
+        "fontWeight": 500,
+        "color": "$text-tertiary"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "rankColor": "$accent-amber",
+          "score": 1.2,
+          "scoreColor": "$accent-red",
+          "code": [
+            "eval(prompt(\"enter code\"))",
+            "document.write(response)",
+            "// trust the user lol"
+          ],
+          "language": "javascript"
+        },
+        {
+          "rank": 2,
+          "rankColor": "$text-secondary",
+          "score": 1.8,
+          "scoreColor": "$accent-red",
+          "code": [
+            "if (x == true) { return true; }",
+            "else if (x == false) { return false; }",
+            "else { return !false; }"
+          ],
+          "language": "typescript"
+        },
+        {
+          "rank": 3,
+          "rankColor": "$text-secondary",
+          "score": 2.1,
+          "scoreColor": "$accent-red",
+          "code": [
+            "SELECT * FROM users WHERE 1=1",
+            "-- TODO: add authentication"
+          ],
+          "language": "sql"
+        }
+      ],
+      "rowPadding": {
+        "vertical": 16,
+        "horizontal": 20
+      },
+      "rowGap": 3,
+      "border": "1px $border-primary"
+    },
+    "footer": {
+      "text": "showing top 3 of 2,847 · view full leaderboard >>",
+      "font": "IBM Plex Mono",
+      "fontSize": 12,
+      "color": "$text-tertiary"
+    }
+  },
+  "colors": {
+    "background": {
+      "page": "$bg-page",
+      "input": "$bg-input",
+      "surface": "$bg-surface"
+    },
+    "border": {
+      "primary": "$border-primary"
+    },
+    "text": {
+      "primary": "$text-primary",
+      "secondary": "$text-secondary",
+      "tertiary": "$text-tertiary"
+    },
+    "accent": {
+      "green": "$accent-green",
+      "amber": "$accent-amber",
+      "red": "$accent-red"
+    },
+    "status": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "dark": "#0A0A0A"
+    }
+  },
+  "spacing": {
+    "navPadding": 40,
+    "mainPaddingTop": 80,
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "gap": {
+      "logo": 8,
+      "hero": 12,
+      "nav": 24,
+      "actions": 16,
+      "leaderboard": 24,
+      "footer": 24
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "jetbrainsMono": "JetBrains Mono",
+      "ibmPlexMono": "IBM Plex Mono"
+    },
+    "fontSizes": {
+      "xs": 12,
+      "sm": 13,
+      "base": 14,
+      "lg": 18,
+      "xl": 20,
+      "2xl": 36,
+      "3xl": 48
+    },
+    "fontWeights": {
+      "normal": 400,
+      "medium": 500,
+      "bold": 700
+    }
+  }
+}

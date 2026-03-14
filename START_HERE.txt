@@ -1,0 +1,218 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    DEVROAST - DESIGN ANALYSIS PACKAGE                       ║
+║                         Screen 1: Code Input (9qwc9)                        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 COMECE AQUI
+═══════════════════════════════════════════════════════════════════════════════
+
+O pacote contém 5 documentos principais para analisar e implementar o design
+extraído do arquivo Pencil "devroast.pen":
+
+
+📄 DOCUMENTOS GERADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. README_DESIGN.md (8.2 KB)
+   ├─ Índice principal com todas as informações
+   ├─ Links para os outros arquivos
+   ├─ Checklist de implementação
+   └─ Notas técnicas importantes
+   
+   👉 COMECE AQUI se quer uma visão geral rápida
+
+
+2. QUICK_REFERENCE.md (9.2 KB)
+   ├─ Layout hierárquico em ASCII
+   ├─ Dimensões e cores (tabelas)
+   ├─ Tipografia e espaçamento
+   ├─ Tailwind CSS classes prontas
+   └─ Cheat sheet visual
+   
+   👉 USE ISSO durante o desenvolvimento
+
+
+3. DESIGN_ANALYSIS.md (8.6 KB)
+   ├─ 11 seções de análise detalhada
+   ├─ Navbar: elementos, layout, espaçamento
+   ├─ Hero Section: tipografia, cores
+   ├─ Code Input Area: estrutura completa
+   ├─ Actions Bar: toggle e buttons
+   ├─ Leaderboard Preview: tabela com dados
+   ├─ Cores e variáveis de design
+   ├─ Responsividade e breakpoints
+   ├─ Componentes React sugeridos
+   ├─ Fonts e tipografia
+   └─ Resumo de implementação
+   
+   👉 LEIA ISSO para documentação completa
+
+
+4. design-tokens.json (7.2 KB)
+   ├─ Estrutura JSON de todos os tokens
+   ├─ Cores (background, text, accent)
+   ├─ Tipografia (fonts, sizes, weights)
+   ├─ Espaçamento (padding, gaps)
+   ├─ Leaderboard data structure
+   └─ Pronto para sistemas de design
+   
+   👉 USE ISSO na integração com seu sistema
+
+
+5. IMPLEMENTATION_GUIDE.tsx (8.0 KB)
+   ├─ Configuração Tailwind completa
+   ├─ Interfaces TypeScript
+   ├─ 8 componentes React funcionais
+   ├─ Hooks customizados
+   ├─ Página de exemplo completa
+   └─ Pronto para copiar e usar
+   
+   👉 COPIE-COLE ISSO para sua implementação React
+
+
+6. ANALYSIS_SUMMARY.html (8.2 KB)
+   ├─ Página visual interativa
+   ├─ Dashboard de dimensões
+   ├─ Paleta de cores com swatches
+   ├─ Tabelas de tipografia
+   ├─ Resumo de componentes
+   └─ Estrutura React visual
+   
+   👉 ABRA ISSO no navegador para visualizar
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 WORKFLOWS RECOMENDADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+WORKFLOW 1: Leitura Rápida (5 minutos)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. Abra: ANALYSIS_SUMMARY.html (visualizar no navegador)                    │
+│ 2. Leia: README_DESIGN.md (índice principal)                                │
+│ 3. Consulte: QUICK_REFERENCE.md (cheat sheet)                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+WORKFLOW 2: Implementação React (30 minutos)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. Leia: README_DESIGN.md (entender estrutura)                              │
+│ 2. Configure: tailwind.config.ts (copiar de IMPLEMENTATION_GUIDE.tsx)       │
+│ 3. Crie componentes: (usar IMPLEMENTATION_GUIDE.tsx como base)              │
+│ 4. Consulte: QUICK_REFERENCE.md (durante o desenvolvimento)                │
+│ 5. Valide: DESIGN_ANALYSIS.md (detalhes específicos)                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+WORKFLOW 3: Documentação Técnica (referência)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. Leia: DESIGN_ANALYSIS.md (documentação completa)                         │
+│ 2. Copie: design-tokens.json (integrar com seu sistema)                     │
+│ 3. Adapte: IMPLEMENTATION_GUIDE.tsx (seu projeto)                           │
+│ 4. Mantenha: QUICK_REFERENCE.md (para futuros devs)                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 INFORMAÇÕES DO DESIGN
+═══════════════════════════════════════════════════════════════════════════════
+
+ARQUIVO ORIGINAL:    devroast.pen
+SCREEN ID:           9qwc9
+NOME DA TELA:        Screen 1 - Code Input
+TIPO:                Frame (Layout Vertical)
+
+VIEWPORT:            1440px (Desktop)
+LAYOUT:              Flexbox Vertical
+THEME:               Dark (preto/cinza com acentos)
+
+ESTRUTURA PRINCIPAL:
+├─ Navbar (56px) ........... > devroast | leaderboard
+├─ Hero Section ............ $ paste your code. get roasted.
+├─ Code Editor (780×360) ... 16 linhas com syntax highlighting
+├─ Actions Bar ............. Toggle roast mode + Submit button
+├─ Footer Hint ............. Estatísticas
+└─ Leaderboard Preview (960px) Tabela com 3 linhas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎨 PALETA DE CORES (CSS Variables)
+═══════════════════════════════════════════════════════════════════════════════
+
+$bg-page           #0A0A0A  │  Background principal (preto)
+$bg-input          #0F0F0F  │  Fundo do editor (cinza muito escuro)
+$bg-surface        #1A1A1A  │  Superfícies secundárias (cinza escuro)
+$border-primary    #2A2A2A  │  Bordas (cinza claro)
+
+$text-primary      #FFFFFF  │  Texto principal (branco)
+$text-secondary    #A0A0A0  │  Texto secundário (cinza médio)
+$text-tertiary     #606060  │  Texto terciário (cinza escuro)
+
+$accent-green      #10B981  │  Destaque principal (verde) 👈 MARCA
+$accent-amber      #F59E0B  │  Destaque secundário (âmbar)
+$accent-red        #EF4444  │  Avisos/Scores (vermelho)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔤 TIPOGRAFIA
+═══════════════════════════════════════════════════════════════════════════════
+
+Font Principal:  JetBrains Mono (código, UI, labels)
+Font Secundária: IBM Plex Mono (descrições)
+
+TAMANHOS E PESOS:
+36px 700 weight .... Hero Title ($ paste your code...)
+20px 700 weight .... Logo symbol (>)
+18px 500 weight .... Logo text (devroast)
+14px 400 weight .... Subtitle, descriptions
+13px 500 weight .... Labels, buttons
+12px 400 weight .... Body text, code
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📐 DIMENSÕES PRINCIPAIS
+═══════════════════════════════════════════════════════════════════════════════
+
+Viewport............  1440px width (full desktop)
+Navbar..............  1440px × 56px (full width)
+Code Editor.........  780px × 360px (centered)
+Actions Bar.........  780px (matches editor)
+Leaderboard.........  960px (centered preview)
+
+Padding Horizontal..  40px (navbar, main)
+Padding Top.........  80px (main content)
+Line Numbers........  48px width
+Toggle Button.......  40px × 22px (rounded)
+
+Gaps:
+  xs (8px)  ........ Logo, dots, small spacing
+  sm (12px) ........ Hero lines
+  md (16px) ........ Sections
+  lg (24px) ........ Large sections
+  xl (32px) ........ Main spacing
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ PRINCIPAIS CARACTERÍSTICAS
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Dark Theme Moderno      - Fundo preto com cinza, acentos em cores vivas
+✓ Monospace Typography    - JetBrains Mono para coerência técnica
+✓ Design Token System     - Variáveis CSS para consistência
+✓ Syntax Highlighting     - 8 tipos de tokens com cores diferentes
+✓ Window Chrome           - Botões coloridos (close/minimize/maximize)
+✓ Responsive Layout       - Elementos com fill_container
+✓ Leaderboard Dinâmico    - Tabela com dados estruturados
+✓ Toggle Interativo       - Roast mode on/off
+✓ Code Editor Preview     - 16 linhas de exemplo
+
+
+══════════════════════════════════════════
