@@ -12,6 +12,7 @@ export const CodeEditor = () => {
   const [code, setCode] = React.useState(DEFAULT_CODE);
   const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(DEFAULT_LANGUAGE);
   const [highlightedHtml, setHighlightedHtml] = React.useState<string>("");
+  const [theme, setTheme] = React.useState<"light" | "dark">("dark");
 
   const { highlighter, isInitialized } = useHighlighter();
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
@@ -20,8 +21,13 @@ export const CodeEditor = () => {
   // Sincronizar scroll
   const handleScroll = React.useCallback((e: React.UIEvent<HTMLTextAreaElement>) => {
     if (highlightedRef.current) {
-      highlightedRef.current.scrollTop = e.currentTarget.scrollTop;
-      highlightedRef.current.scrollLeft = e.currentTarget.scrollLeft;
+      const scrollTop = e.currentTarget.scrollTop;
+      const scrollLeft = e.currentTarget.scrollLeft;
+
+      highlightedRef.current.scrollTop = scrollTop;
+      highlightedRef.current.scrollLeft = scrollLeft;
+
+      console.log("Scroll sincronizado:", { scrollTop, scrollLeft });
     }
   }, []);
 
@@ -32,9 +38,10 @@ export const CodeEditor = () => {
     }
 
     try {
+      const shikiTheme = theme === "light" ? "github-light" : "github-dark";
       const fullHtml = highlighter.codeToHtml(code, {
         lang: selectedLanguage.id,
-        theme: "github-light",
+        theme: shikiTheme,
       });
 
       // Extrair conteúdo da tag <code>
@@ -51,24 +58,39 @@ export const CodeEditor = () => {
       console.error("Erro ao fazer highlight:", error);
       setHighlightedHtml("");
     }
-  }, [code, selectedLanguage, highlighter, isInitialized]);
+  }, [code, selectedLanguage, highlighter, isInitialized, theme]);
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCode(e.target.value);
+  };
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   const lines = code.split("\n");
 
   return (
     <div className="w-full">
-      {/* Language Selector */}
+      {/* Language Selector & Theme Toggle */}
       <div className="mb-4 flex items-center justify-between">
         <LanguageSelector
           selectedLanguage={selectedLanguage}
           onLanguageChange={setSelectedLanguage}
           isLoading={!isInitialized}
         />
-        {!isInitialized && <p className="text-xs text-text-secondary">Carregando highlighter...</p>}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="px-3 py-1 rounded text-xs font-mono bg-gray-600 text-white hover:bg-gray-500 transition-colors"
+            title={`Tema atual: ${theme}`}
+          >
+            {theme === "light" ? "☀️ Light" : "🌙 Dark"}
+          </button>
+          {!isInitialized && (
+            <p className="text-xs text-text-secondary">Carregando highlighter...</p>
+          )}
+        </div>
       </div>
 
       {/* Editor Container */}
@@ -92,7 +114,7 @@ export const CodeEditor = () => {
           </div>
 
           {/* Highlighted Code (Behind) */}
-          <HighlightedCode ref={highlightedRef} html={highlightedHtml} />
+          <HighlightedCode ref={highlightedRef} html={highlightedHtml} theme={theme} />
 
           {/* Textarea (On Top - Transparent) */}
           <textarea
@@ -105,7 +127,7 @@ export const CodeEditor = () => {
               whiteSpace: "pre-wrap",
               wordWrap: "break-word",
               lineHeight: "1.5rem",
-              caretColor: "black",
+              caretColor: theme === "light" ? "#000000" : "#ffffff",
             }}
             spellCheck="false"
           />
