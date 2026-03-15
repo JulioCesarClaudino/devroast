@@ -47,7 +47,14 @@ export const CodeHighlighter = React.forwardRef<HTMLDivElement, CodeHighlighterP
             theme: themeName,
           });
 
-          setHighlightedHtml(html);
+          // Remove as tags <pre> e <code> externas do Shiki para nosso layout customizado
+          const cleanedHtml = html
+            .replace(/<pre[^>]*>/g, "")
+            .replace(/<\/pre>/g, "")
+            .replace(/<code[^>]*>/g, "")
+            .replace(/<\/code>/g, "");
+
+          setHighlightedHtml(cleanedHtml);
         } catch (error) {
           console.error("Error highlighting code:", error);
           // Fallback para plaintext em caso de erro
@@ -63,7 +70,7 @@ export const CodeHighlighter = React.forwardRef<HTMLDivElement, CodeHighlighterP
     return (
       <div
         ref={ref}
-        className={`overflow-auto rounded-lg bg-page p-4 font-mono text-sm leading-relaxed ${className}`}
+        className={`overflow-auto font-mono text-sm leading-7 ${className}`}
         dangerouslySetInnerHTML={{ __html: highlightedHtml }}
         style={{
           minHeight: "200px",

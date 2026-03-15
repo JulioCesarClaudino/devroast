@@ -71,7 +71,7 @@ export const CodeEditor = () => {
         </div>
 
         {/* Code Content - Editable */}
-        <div className="relative flex">
+        <div className="relative flex bg-bg-input">
           {/* Line Numbers */}
           <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right pointer-events-none">
             {lines.map((_, index) => (
@@ -81,21 +81,7 @@ export const CodeEditor = () => {
             ))}
           </div>
 
-          {/* Textarea Input - Overlaid (transparent) */}
-          <textarea
-            ref={textareaRef}
-            value={code}
-            onChange={handleInput}
-            onScroll={syncScroll}
-            className="absolute inset-0 ml-12 p-4 font-mono text-sm text-text-primary bg-transparent border-none outline-none resize-none whitespace-pre-wrap break-words overflow-x-auto leading-7 z-10"
-            style={{
-              color: "transparent",
-              caretColor: isDarkMode ? "white" : "black",
-            }}
-            spellCheck="false"
-          />
-
-          {/* Code Display - Syntax Highlighted */}
+          {/* Code Display - Syntax Highlighted (Background) */}
           {isInitialized && highlighter ? (
             <CodeHighlighter
               ref={codeHighlighterRef}
@@ -103,7 +89,7 @@ export const CodeEditor = () => {
               language={selectedLanguage}
               highlighter={highlighter}
               isDarkMode={isDarkMode}
-              className="flex-1 overflow-hidden z-0"
+              className="absolute inset-0 ml-12 overflow-hidden z-0 leading-7 p-4 flex-1 w-full"
             />
           ) : (
             <div className="flex-1 px-4 py-4 font-mono text-sm text-text-primary whitespace-pre-wrap break-words">
@@ -116,6 +102,20 @@ export const CodeEditor = () => {
               </div>
             </div>
           )}
+
+          {/* Textarea Input - Overlaid (transparent) - Foreground */}
+          <textarea
+            ref={textareaRef}
+            value={code}
+            onChange={handleInput}
+            onScroll={syncScroll}
+            className="absolute inset-0 ml-12 p-4 font-mono text-sm border-none outline-none resize-none whitespace-pre-wrap break-words overflow-auto leading-7 z-10 bg-transparent"
+            style={{
+              color: "transparent",
+              caretColor: isDarkMode ? "white" : "black",
+            }}
+            spellCheck="false"
+          />
         </div>
       </div>
     </div>
