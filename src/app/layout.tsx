@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DevRoast - Get Your Code Roasted",
-  description: "Paste your code and get brutally honest feedback. Maximum sarcasm enabled.",
+  description:
+    "Paste your code and get brutally honest feedback. Maximum sarcasm enabled.",
 };
 
 export default function RootLayout({
@@ -26,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-page`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-page`}
+      >
         <Navbar />
         {children}
       </body>

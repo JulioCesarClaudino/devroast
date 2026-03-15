@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ export const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 h-14 w-full border-b border-border-primary bg-page">
+      <nav className="sticky top-0 z-50 h-14 w-full border-b border-border-primary bg-bg-input">
         <div className="flex h-full items-center justify-between px-4 sm:px-6 md:px-10">
           {/* Logo */}
           <Link href="/home" className="flex items-center gap-2">
@@ -29,11 +29,7 @@ export const Navbar = () => {
             >
               leaderboard
             </Link>
-            <Button
-              variant="primary"
-              size="sm"
-              asChild
-            >
+            <Button variant="primary" size="sm" asChild>
               <Link href="/roast">roast code</Link>
             </Button>
           </div>
@@ -44,18 +40,14 @@ export const Navbar = () => {
             className="flex md:hidden items-center justify-center w-10 h-10 text-text-primary hover:text-text-secondary transition-colors"
             aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed inset-0 top-14 z-40 bg-page md:hidden">
+        <div className="fixed inset-0 top-14 z-40 bg-bg-input md:hidden">
           <div className="flex flex-col gap-4 border-b border-border-primary p-4">
             <Link
               href="/leaderboard"
@@ -64,12 +56,7 @@ export const Navbar = () => {
             >
               leaderboard
             </Link>
-            <Button
-              variant="primary"
-              size="sm"
-              asChild
-              className="w-full"
-            >
+            <Button variant="primary" size="sm" asChild className="w-full">
               <Link href="/roast" onClick={() => setIsOpen(false)}>
                 roast code
               </Link>
