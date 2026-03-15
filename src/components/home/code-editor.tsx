@@ -11,7 +11,6 @@ export const CodeEditor = () => {
   const [code, setCode] = React.useState(DEFAULT_CODE);
   const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(DEFAULT_LANGUAGE);
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const [highlightedHtml, setHighlightedHtml] = React.useState("");
 
   const { highlighter, isInitialized } = useHighlighter();
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
@@ -20,7 +19,6 @@ export const CodeEditor = () => {
   React.useEffect(() => {
     setIsDarkMode(document.documentElement.classList.contains("dark"));
 
-    // Observa mudanças no classe dark do html
     const observer = new MutationObserver(() => {
       setIsDarkMode(document.documentElement.classList.contains("dark"));
     });
@@ -32,38 +30,6 @@ export const CodeEditor = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  // Gera syntax highlighting
-  React.useEffect(() => {
-    const highlightCode = async () => {
-      if (!highlighter || !code || !isInitialized) {
-        setHighlightedHtml("");
-        return;
-      }
-
-      try {
-        const themeName = isDarkMode ? "github-dark" : "github-light";
-        const html = await highlighter.codeToHtml(code, {
-          lang: selectedLanguage.id,
-          theme: themeName,
-        });
-
-        // Remove tags <pre> e <code>
-        const cleaned = html
-          .replace(/<pre[^>]*>/g, "")
-          .replace(/<\/pre>/g, "")
-          .replace(/<code[^>]*>/g, "")
-          .replace(/<\/code>/g, "");
-
-        setHighlightedHtml(cleaned);
-      } catch (error) {
-        console.error("Error highlighting code:", error);
-        setHighlightedHtml("");
-      }
-    };
-
-    highlightCode();
-  }, [code, selectedLanguage, highlighter, isDarkMode, isInitialized]);
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCode(e.target.value);
@@ -105,17 +71,12 @@ export const CodeEditor = () => {
             ))}
           </div>
 
-          {/* Highlight Background Layer */}
-          <div className="absolute inset-0 ml-12 p-4 font-mono text-sm leading-7 whitespace-pre-wrap break-words pointer-events-none overflow-hidden">
-            <div dangerouslySetInnerHTML={{ __html: highlightedHtml }} />
-          </div>
-
-          {/* Textarea Input - Foreground */}
+          {/* Textarea Input */}
           <textarea
             ref={textareaRef}
             value={code}
             onChange={handleInput}
-            className="relative flex-1 ml-12 p-4 font-mono text-sm text-text-primary bg-transparent border-none outline-none resize-none whitespace-pre-wrap break-words overflow-auto leading-7 z-10"
+            className="flex-1 p-4 font-mono text-sm text-text-primary bg-transparent border-none outline-none resize-none whitespace-pre-wrap break-words overflow-auto leading-7"
             style={{
               caretColor: isDarkMode ? "white" : "black",
             }}
