@@ -17,13 +17,15 @@ export const HighlightedCode = React.forwardRef<HTMLDivElement, HighlightedCodeP
           inset: 0,
           marginLeft: "48px",
           backgroundColor: "transparent",
-          color: "inherit",
+          color: "#24292e",
         }}
       >
-        <pre style={{ margin: 0, whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
+        <pre
+          style={{ margin: 0, whiteSpace: "pre-wrap", wordWrap: "break-word", color: "inherit" }}
+        >
           <code
             dangerouslySetInnerHTML={{ __html: html }}
-            style={{ fontFamily: "inherit", fontSize: "inherit" }}
+            style={{ fontFamily: "inherit", fontSize: "inherit", color: "inherit" }}
           />
         </pre>
       </div>

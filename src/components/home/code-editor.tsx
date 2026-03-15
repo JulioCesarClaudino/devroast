@@ -41,6 +41,11 @@ export const CodeEditor = () => {
       const match = fullHtml.match(/<code>([\s\S]*?)<\/code>/);
       const innerHtml = match ? match[1] : "";
 
+      console.log("Shiki HTML gerado:", {
+        fullHtml: fullHtml.substring(0, 100),
+        innerHtml: innerHtml.substring(0, 100),
+      });
+
       setHighlightedHtml(innerHtml);
     } catch (error) {
       console.error("Erro ao fazer highlight:", error);
