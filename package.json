@@ -7,30 +7,45 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "formate": "biome check --write"
+    "formate": "biome check --write",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:seed:languages": "tsx src/db/seeds/languages.ts",
+    "db:seed:roasts": "tsx src/db/seeds/roasts.ts",
+    "db:seed": "tsx scripts/seed.ts all"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
+    "@faker-js/faker": "^8.4.1",
     "@radix-ui/react-slot": "^1.2.4",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.31.1",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "pg": "^8.12.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "shiki": "^4.0.2",
     "tailwind-merge": "^3.5.0",
-    "tailwind-variants": "^3.2.2"
+    "tailwind-variants": "^3.2.2",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.18.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/uuid": "^9.0.8",
     "babel-plugin-react-compiler": "1.0.0",
+    "drizzle-kit": "^0.31.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.7.0",
     "typescript": "^5"
   }
 }
