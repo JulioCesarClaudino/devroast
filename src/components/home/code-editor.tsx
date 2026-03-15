@@ -72,20 +72,20 @@ export const CodeEditor = () => {
       </div>
 
       {/* Editor Container */}
-      <div className="border border-border-primary rounded-lg bg-white overflow-hidden">
+      <div className="border border-border-primary rounded-lg bg-bg-input overflow-hidden">
         {/* Header with status dots */}
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-border-primary bg-white">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-border-primary bg-bg-input">
           <div className="h-3 w-3 rounded-full bg-accent-red" />
           <div className="h-3 w-3 rounded-full bg-accent-amber" />
           <div className="h-3 w-3 rounded-full bg-accent-green" />
         </div>
 
         {/* Code Content Container */}
-        <div className="relative flex overflow-hidden bg-white" style={{ minHeight: "400px" }}>
+        <div className="relative flex overflow-hidden bg-bg-input" style={{ minHeight: "400px" }}>
           {/* Line Numbers */}
-          <div className="flex-shrink-0 w-12 bg-gray-50 border-r border-gray-200 px-2 py-4 text-right select-none">
+          <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none">
             {lines.map((_, index) => (
-              <div key={index} className="font-mono text-xs text-gray-500 leading-6 h-6">
+              <div key={index} className="font-mono text-xs text-text-tertiary leading-6 h-6">
                 {index + 1}
               </div>
             ))}
