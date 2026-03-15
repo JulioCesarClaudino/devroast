@@ -15,11 +15,8 @@ export const HighlightedCode = React.forwardRef<HTMLDivElement, HighlightedCodeP
     return (
       <div
         ref={ref}
-        className="font-mono text-sm leading-6 whitespace-pre-wrap break-words overflow-auto pointer-events-none"
+        className="flex-1 font-mono text-sm leading-6 whitespace-pre-wrap break-words overflow-auto pointer-events-none"
         style={{
-          position: "absolute",
-          inset: 0,
-          marginLeft: "48px",
           backgroundColor: bgColor,
           padding: "16px",
         }}

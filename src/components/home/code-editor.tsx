@@ -5,12 +5,14 @@ import { HighlightedCode } from "@/components/home/highlighted-code";
 import { LanguageSelector } from "@/components/home/language-selector";
 import { DEFAULT_LANGUAGE, type Language } from "@/lib/constants/languages";
 import { useHighlighter } from "@/lib/hooks/useHighlighter";
+import { detectLanguage } from "@/lib/utils/detectLanguage";
 
 const DEFAULT_CODE = "// paste your code here...";
 
 export const CodeEditor = () => {
   const [code, setCode] = React.useState(DEFAULT_CODE);
   const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(DEFAULT_LANGUAGE);
+  const [userSelectedLanguage, setUserSelectedLanguage] = React.useState(false);
   const [highlightedHtml, setHighlightedHtml] = React.useState<string>("");
   const [theme, setTheme] = React.useState<"light" | "dark">("dark");
 
@@ -30,6 +32,23 @@ export const CodeEditor = () => {
       console.log("Scroll sincronizado:", { scrollTop, scrollLeft });
     }
   }, []);
+
+  // Handler para mudança de linguagem (marca como seleção manual)
+  const handleLanguageChange = React.useCallback((language: Language) => {
+    setSelectedLanguage(language);
+    setUserSelectedLanguage(true);
+  }, []);
+
+  // Efeito de detecção automática de linguagem
+  React.useEffect(() => {
+    if (userSelectedLanguage) return; // Não detectar se usuário selecionou manualmente
+
+    const detected = detectLanguage(code);
+    if (detected && detected.id !== selectedLanguage.id) {
+      setSelectedLanguage(detected);
+      console.log("Linguagem auto-detectada:", detected.name);
+    }
+  }, [code, userSelectedLanguage, selectedLanguage]);
 
   // Fazer highlight do código
   React.useEffect(() => {
@@ -76,7 +95,7 @@ export const CodeEditor = () => {
       <div className="mb-4 flex items-center justify-between">
         <LanguageSelector
           selectedLanguage={selectedLanguage}
-          onLanguageChange={setSelectedLanguage}
+          onLanguageChange={handleLanguageChange}
           isLoading={!isInitialized}
         />
         <div className="flex items-center gap-3">
@@ -94,7 +113,7 @@ export const CodeEditor = () => {
       </div>
 
       {/* Editor Container */}
-      <div className="border border-border-primary rounded-lg bg-bg-input overflow-hidden">
+      <div className="flex flex-col max-h-96 md:max-h-[500px] border border-border-primary rounded-lg bg-bg-input overflow-hidden">
         {/* Header with status dots */}
         <div className="flex items-center gap-2 px-4 py-3 border-b border-border-primary bg-bg-input">
           <div className="h-3 w-3 rounded-full bg-accent-red" />
@@ -103,9 +122,9 @@ export const CodeEditor = () => {
         </div>
 
         {/* Code Content Container */}
-        <div className="relative flex overflow-hidden bg-bg-input" style={{ minHeight: "400px" }}>
+        <div className="flex overflow-hidden flex-1 bg-bg-input">
           {/* Line Numbers */}
-          <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none">
+          <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none overflow-hidden">
             {lines.map((_, index) => (
               <div key={index} className="font-mono text-xs text-text-tertiary leading-6 h-6">
                 {index + 1}
@@ -113,24 +132,27 @@ export const CodeEditor = () => {
             ))}
           </div>
 
-          {/* Highlighted Code (Behind) */}
-          <HighlightedCode ref={highlightedRef} html={highlightedHtml} theme={theme} />
+          {/* Wrapper para textarea e highlighted code */}
+          <div className="flex flex-1 relative overflow-hidden">
+            {/* Textarea (On Top - Transparent, Absolute) */}
+            <textarea
+              ref={textareaRef}
+              value={code}
+              onChange={handleInput}
+              onScroll={handleScroll}
+              className="absolute inset-0 p-4 font-mono text-sm text-transparent bg-transparent border-none outline-none resize-none overflow-auto"
+              style={{
+                whiteSpace: "pre-wrap",
+                wordWrap: "break-word",
+                lineHeight: "1.5rem",
+                caretColor: theme === "light" ? "#000000" : "#ffffff",
+              }}
+              spellCheck="false"
+            />
 
-          {/* Textarea (On Top - Transparent) */}
-          <textarea
-            ref={textareaRef}
-            value={code}
-            onChange={handleInput}
-            onScroll={handleScroll}
-            className="relative flex-1 p-4 font-mono text-sm text-transparent bg-transparent border-none outline-none resize-none overflow-auto"
-            style={{
-              whiteSpace: "pre-wrap",
-              wordWrap: "break-word",
-              lineHeight: "1.5rem",
-              caretColor: theme === "light" ? "#000000" : "#ffffff",
-            }}
-            spellCheck="false"
-          />
+            {/* Highlighted Code (Behind - flex-1) */}
+            <HighlightedCode ref={highlightedRef} html={highlightedHtml} theme={theme} />
+          </div>
         </div>
       </div>
     </div>
