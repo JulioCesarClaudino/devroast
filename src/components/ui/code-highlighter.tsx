@@ -25,7 +25,6 @@ interface CodeHighlighterProps {
 export const CodeHighlighter = React.forwardRef<HTMLDivElement, CodeHighlighterProps>(
   ({ code, language, highlighter, className = "", isDarkMode = false }, ref) => {
     const [highlightedHtml, setHighlightedHtml] = useState<string>("");
-    const [isHighlighting, setIsHighlighting] = useState(false);
 
     useEffect(() => {
       const highlightCode = async () => {
@@ -36,10 +35,8 @@ export const CodeHighlighter = React.forwardRef<HTMLDivElement, CodeHighlighterP
         }
 
         try {
-          setIsHighlighting(true);
-
-          // Determina o nome do tema baseado no modo dark
-          const themeName = isDarkMode ? "github-dark" : "github-light";
+           // Determina o nome do tema baseado no modo dark
+           const themeName = isDarkMode ? "github-dark" : "github-light";
 
           // Gera HTML destacado
           const html = await highlighter.codeToHtml(code, {
@@ -57,12 +54,10 @@ export const CodeHighlighter = React.forwardRef<HTMLDivElement, CodeHighlighterP
           setHighlightedHtml(cleanedHtml);
         } catch (error) {
           console.error("Error highlighting code:", error);
-          // Fallback para plaintext em caso de erro
-          setHighlightedHtml(escapeHtml(code));
-        } finally {
-          setIsHighlighting(false);
-        }
-      };
+           // Fallback para plaintext em caso de erro
+           setHighlightedHtml(escapeHtml(code));
+         }
+       };
 
       highlightCode();
     }, [code, language, highlighter, isDarkMode]);

@@ -3,8 +3,6 @@
 import Link from "next/link";
 import * as React from "react";
 
-import { type TableCell, TableRow } from "@/components/ui/table-row";
-
 const LEADERBOARD_DATA = [
   {
     rank: 1,

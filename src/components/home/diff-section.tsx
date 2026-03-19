@@ -23,7 +23,7 @@ export const DiffSection: React.FC<DiffSectionProps> = ({
     <div className="w-full flex flex-col gap-4">
       {/* Title Row */}
       <div className="flex items-center gap-2 font-mono text-sm md:text-base">
-        <span className="text-accent-green font-bold">//</span>
+        <span className="text-accent-green font-bold">{"//"}</span>
         <span className="text-text-primary font-bold">suggested_fix</span>
       </div>
 

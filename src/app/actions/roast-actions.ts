@@ -4,7 +4,6 @@ import {
   createComment,
   decrementCommentLikes,
   deleteComment,
-  getCommentById,
   incrementCommentLikes,
   updateComment,
 } from "@/lib/db/comment-queries";

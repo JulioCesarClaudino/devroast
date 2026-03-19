@@ -18,7 +18,7 @@ export const AnalysisSection: React.FC<AnalysisSectionProps> = ({ issues }) => {
     <div className="w-full flex flex-col gap-6">
       {/* Title Row */}
       <div className="flex items-center gap-2 font-mono text-sm md:text-base">
-        <span className="text-accent-green font-bold">//</span>
+        <span className="text-accent-green font-bold">{"//"}</span>
         <span className="text-text-primary font-bold">detailed_analysis</span>
       </div>
 

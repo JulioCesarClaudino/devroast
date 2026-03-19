@@ -43,7 +43,7 @@ export const RoastSummary: React.FC<RoastSummaryProps> = ({
 
         {/* Roast Title */}
         <p className="font-mono text-lg md:text-xl leading-relaxed text-text-primary">
-          "{roastTitle}"
+          &quot;{roastTitle}&quot;
         </p>
 
         {/* Meta Info */}

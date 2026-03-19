@@ -8,8 +8,6 @@ import { useHighlighter } from "@/lib/hooks/useHighlighter";
 import { detectLanguage } from "@/lib/utils/detectLanguage";
 import { useCodeEditor } from "@/lib/context/CodeEditorContext";
 
-const DEFAULT_CODE = "// paste your code here...";
-
 export const CodeEditor = () => {
   const { code, setCode, characterCount, isLimitExceeded, characterLimit } =
     useCodeEditor();

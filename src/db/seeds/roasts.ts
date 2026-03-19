@@ -3,15 +3,6 @@ import { sql } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "@/db/client";
 
-// Tipos de verdicts
-const VERDICTS = [
-  "needs_serious_help",
-  "not_great",
-  "could_be_better",
-  "acceptable",
-  "pretty_good",
-] as const;
-
 // Severidades de issues
 const ISSUE_SEVERITIES = ["critical", "warning", "info"] as const;
 
