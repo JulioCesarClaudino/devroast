@@ -1,5 +1,4 @@
 import * as React from "react";
-import { CodeBlock } from "@/components/ui/code-block";
 
 export interface LeaderboardEntryData {
   rank: number;
@@ -13,10 +12,9 @@ interface LeaderboardEntryProps {
   entry: LeaderboardEntryData;
 }
 
-export const LeaderboardEntry = async ({
-  entry,
-}: LeaderboardEntryProps) => {
+export const LeaderboardEntry = ({ entry }: LeaderboardEntryProps) => {
   const isFirstRank = entry.rank === 1;
+  const lineArray = entry.code.split("\n");
 
   return (
     <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page">
@@ -57,13 +55,27 @@ export const LeaderboardEntry = async ({
         </div>
       </div>
 
-      {/* Code Block */}
-      <div className="max-h-32 overflow-hidden">
-        <CodeBlock
-          code={entry.code}
-          language={entry.language}
-          showLineNumbers={true}
-        />
+      {/* Code Preview */}
+      <div className="bg-bg-input max-h-32 overflow-hidden">
+        <div className="flex">
+          {/* Line Numbers */}
+          <div className="bg-bg-surface border-r border-border-primary px-3 py-3 text-right text-xs font-mono text-text-tertiary">
+            {lineArray.map((_, i) => (
+              <div key={i + 1} className="h-5 leading-5">
+                {i + 1}
+              </div>
+            ))}
+          </div>
+
+          {/* Code */}
+          <div className="flex-1 px-3 py-3 font-mono text-xs overflow-x-auto">
+            {lineArray.map((line, i) => (
+              <div key={i} className="h-5 leading-5 text-text-primary">
+                {line || " "}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

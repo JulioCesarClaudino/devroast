@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { LeaderboardEntry, type LeaderboardEntryData } from "@/components/home/leaderboard-entry";
 import { PageHero } from "@/components/home/page-hero";
 import { PageContainer } from "@/components/home/page-container";
@@ -52,8 +51,8 @@ result = eval(data)`,
     score: "3.2",
     language: "php",
     lines: 2,
-    code: `\$query = "SELECT * FROM users WHERE id=" . \$_GET['id'];
-\$result = mysqli_query(\$conn, \$query);`,
+    code: `$query = "SELECT * FROM users WHERE id=" . $_GET['id'];
+$result = mysqli_query($conn, $query);`,
   },
   {
     rank: 6,
@@ -99,7 +98,7 @@ std::io::stdin().read_line(&mut password).unwrap();
     language: "bash",
     lines: 3,
     code: `#!/bin/bash
-rm -rf /\$1
+rm -rf /$1
 # oops`,
   },
 ];
@@ -135,14 +134,7 @@ export default function LeaderboardPage() {
       {/* Entries Container */}
       <PageContainer>
         {LEADERBOARD_DATA.map((entry) => (
-          <Suspense
-            key={entry.rank}
-            fallback={
-              <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page h-48 animate-pulse" />
-            }
-          >
-            <LeaderboardEntry entry={entry} />
-          </Suspense>
+          <LeaderboardEntry key={entry.rank} entry={entry} />
         ))}
       </PageContainer>
 
