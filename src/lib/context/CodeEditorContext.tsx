@@ -12,7 +12,7 @@ interface CodeEditorContextType {
 
 export const CodeEditorContext = React.createContext<CodeEditorContextType | undefined>(undefined);
 
-const CHARACTER_LIMIT = 5000;
+const CHARACTER_LIMIT = 2000;
 
 export const CodeEditorProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
