@@ -4,14 +4,25 @@ import { Badge } from "@/components/ui/badge";
 
 export interface RoastSummaryProps {
   score: number;
-  verdict: "needs_serious_help" | "needs_work" | "okay" | "pretty_good" | "chef_kiss";
+  verdict:
+    | "needs_serious_help"
+    | "needs_work"
+    | "okay"
+    | "pretty_good"
+    | "chef_kiss";
   roastTitle: string;
   language: string;
   lines: number;
 }
 
-const verdictConfig: Record<string, { label: string; variant: "critical" | "warning" | "good" }> = {
-  needs_serious_help: { label: "verdict: needs_serious_help", variant: "critical" },
+const verdictConfig: Record<
+  string,
+  { label: string; variant: "critical" | "warning" | "good" }
+> = {
+  needs_serious_help: {
+    label: "verdict: needs_serious_help",
+    variant: "critical",
+  },
   needs_work: { label: "verdict: needs_work", variant: "critical" },
   okay: { label: "verdict: okay", variant: "warning" },
   pretty_good: { label: "verdict: pretty_good", variant: "good" },
@@ -49,6 +60,13 @@ export const RoastSummary: React.FC<RoastSummaryProps> = ({
           <span>lang: {language}</span>
           <span>·</span>
           <span>{lines} lines</span>
+        </div>
+
+        {/* Share Button */}
+        <div className="flex items-center gap-3 pt-4">
+          <button className="flex items-center gap-0 px-4 py-2 border border-border-primary text-text-primary hover:text-accent-green hover:border-accent-green transition-colors font-mono text-xs">
+            $ share_roast
+          </button>
         </div>
       </div>
     </div>

@@ -27,7 +27,10 @@ export default async function RoastPage({ params }: RoastPageProps) {
       {/* Navigation */}
       <nav className="w-full h-14 border-b border-border-primary bg-bg-page flex items-center px-4 sm:px-6 md:px-10">
         <div className="mx-auto max-w-6xl w-full flex items-center justify-between">
-          <Link href="/" className="font-mono text-lg font-bold text-accent-green hover:text-accent-green/80 transition-colors">
+          <Link
+            href="/"
+            className="font-mono text-lg font-bold text-accent-green hover:text-accent-green/80 transition-colors"
+          >
             💀 devroast
           </Link>
         </div>
@@ -53,8 +56,10 @@ export default async function RoastPage({ params }: RoastPageProps) {
               />
             </section>
 
-            {/* Divider */}
-            <div className="w-full h-px bg-border-primary" />
+            {/* Divider + Extra Space */}
+            <div className="w-full flex flex-col gap-8">
+              <div className="w-full h-px bg-border-primary" />
+            </div>
 
             {/* Analysis Section */}
             <section>
