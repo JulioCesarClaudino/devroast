@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { LeaderboardEntry, type LeaderboardEntryData } from "@/components/home/leaderboard-entry";
+import { PageHero } from "@/components/home/page-hero";
+import { FooterHint } from "@/components/home/footer-hint";
 
 export const metadata: Metadata = {
   title: "Leaderboard - DevRoast",
@@ -112,31 +114,22 @@ export default function LeaderboardPage() {
   return (
     <main className="w-full bg-bg-page">
       {/* Hero Section */}
-      <div className="w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16 md:py-20">
-        <div className="mx-auto max-w-6xl flex flex-col gap-4">
-          {/* Title */}
-          <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold">
-            <span className="text-accent-green">#</span>{" "}
-            <span className="text-text-primary">shame leaderboard</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="font-mono text-sm sm:text-base text-text-secondary">
-            // the most roasted code on the internet
-          </p>
-
-          {/* Stats */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-xs sm:text-sm font-mono text-text-tertiary">
-            <div>
-              <span className="text-text-secondary">{LEADERBOARD_DATA.length}</span> entries
-            </div>
-            <div>
-              avg roast:{" "}
-              <span className="text-accent-red font-bold">{avgScore}</span> 🔥
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        titlePrefix="#"
+        title="shame leaderboard"
+        subtitle="// the most roasted code on the internet"
+        stats={[
+          {
+            label: "entries",
+            value: LEADERBOARD_DATA.length,
+          },
+          {
+            label: "avg roast",
+            value: avgScore,
+            highlight: true,
+          },
+        ]}
+      />
 
       {/* Entries Container */}
       <div className="w-full px-4 sm:px-6 md:px-10 pb-12 sm:pb-16 md:pb-20">
@@ -151,6 +144,16 @@ export default function LeaderboardPage() {
               <LeaderboardEntry entry={entry} />
             </Suspense>
           ))}
+        </div>
+      </div>
+
+      {/* Footer Stats */}
+      <div className="w-full px-4 sm:px-6 md:px-10 pb-12 sm:pb-16 md:pb-20">
+        <div className="mx-auto max-w-6xl">
+          <FooterHint
+            roastCount={LEADERBOARD_DATA.length}
+            avgScore={parseFloat(avgScore)}
+          />
         </div>
       </div>
     </main>
