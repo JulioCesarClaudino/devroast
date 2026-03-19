@@ -36,7 +36,7 @@ export default async function RoastPage({ params }: RoastPageProps) {
       {/* Main Content */}
       <main className="flex-1 w-full">
         <div className="w-full px-4 sm:px-6 md:px-10 py-8 sm:py-12 md:py-16">
-          <div className="mx-auto max-w-6xl flex flex-col gap-10">
+          <div className="mx-auto max-w-6xl flex flex-col gap-8">
             {/* Score Hero Section */}
             <section>
               <RoastSummary {...roastData.summary} />

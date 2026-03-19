@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
@@ -13,7 +11,7 @@ export const SubmittedCodeSection: React.FC<SubmittedCodeSectionProps> = ({
   language,
 }) => {
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-3">
       {/* Title Row */}
       <div className="flex items-center gap-2 font-mono text-sm md:text-base">
         <span className="text-accent-green font-bold">{"//"}</span>
@@ -21,7 +19,7 @@ export const SubmittedCodeSection: React.FC<SubmittedCodeSectionProps> = ({
       </div>
 
       {/* Code Preview */}
-      <div className="overflow-hidden rounded-lg h-80 md:h-96 max-h-[424px] w-full">
+      <div className="overflow-hidden rounded-lg h-64 md:h-80 max-h-[350px] w-full">
         <CodeBlock code={code} language={language} showLineNumbers={true} />
       </div>
     </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { DiffLine } from "@/components/ui/diff-line";
 
@@ -20,7 +18,7 @@ export const DiffSection: React.FC<DiffSectionProps> = ({
   diff,
 }) => {
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-3">
       {/* Title Row */}
       <div className="flex items-center gap-2 font-mono text-sm md:text-base">
         <span className="text-accent-green font-bold">{"//"}</span>

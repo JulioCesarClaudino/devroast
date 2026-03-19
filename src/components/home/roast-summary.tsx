@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { ScoreRing } from "@/components/ui/score-ring";
 import { Badge } from "@/components/ui/badge";
