@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { LeaderboardEntry, type LeaderboardEntryData } from "@/components/home/leaderboard-entry";
 import { PageHero } from "@/components/home/page-hero";
+import { PageContainer } from "@/components/home/page-container";
 import { FooterHint } from "@/components/home/footer-hint";
 
 export const metadata: Metadata = {
@@ -132,30 +133,26 @@ export default function LeaderboardPage() {
       />
 
       {/* Entries Container */}
-      <div className="w-full px-4 sm:px-6 md:px-10 pb-12 sm:pb-16 md:pb-20">
-        <div className="mx-auto max-w-6xl flex flex-col gap-5">
-          {LEADERBOARD_DATA.map((entry) => (
-            <Suspense
-              key={entry.rank}
-              fallback={
-                <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page h-48 animate-pulse" />
-              }
-            >
-              <LeaderboardEntry entry={entry} />
-            </Suspense>
-          ))}
-        </div>
-      </div>
+      <PageContainer>
+        {LEADERBOARD_DATA.map((entry) => (
+          <Suspense
+            key={entry.rank}
+            fallback={
+              <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page h-48 animate-pulse" />
+            }
+          >
+            <LeaderboardEntry entry={entry} />
+          </Suspense>
+        ))}
+      </PageContainer>
 
       {/* Footer Stats */}
-      <div className="w-full px-4 sm:px-6 md:px-10 pb-12 sm:pb-16 md:pb-20">
-        <div className="mx-auto max-w-6xl">
-          <FooterHint
-            roastCount={LEADERBOARD_DATA.length}
-            avgScore={parseFloat(avgScore)}
-          />
-        </div>
-      </div>
+      <PageContainer>
+        <FooterHint
+          roastCount={LEADERBOARD_DATA.length}
+          avgScore={parseFloat(avgScore)}
+        />
+      </PageContainer>
     </main>
   );
 }
