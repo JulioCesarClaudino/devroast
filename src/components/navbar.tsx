@@ -4,8 +4,6 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
-
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -28,9 +26,6 @@ export const Navbar = () => {
             >
               leaderboard
             </Link>
-            <Button variant="primary" size="sm" asChild>
-              <Link href="/roast">roast code</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -55,11 +50,6 @@ export const Navbar = () => {
             >
               leaderboard
             </Link>
-            <Button variant="primary" size="sm" asChild className="w-full">
-              <Link href="/roast" onClick={() => setIsOpen(false)}>
-                roast code
-              </Link>
-            </Button>
           </div>
         </div>
       )}
