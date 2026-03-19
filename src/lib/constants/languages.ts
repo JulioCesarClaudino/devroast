@@ -22,6 +22,31 @@ export const LANGUAGES = {
     name: "TypeScript",
     fileExtension: ".ts",
   },
+  php: {
+    id: "php",
+    name: "PHP",
+    fileExtension: ".php",
+  },
+  java: {
+    id: "java",
+    name: "Java",
+    fileExtension: ".java",
+  },
+  go: {
+    id: "go",
+    name: "Go",
+    fileExtension: ".go",
+  },
+  rust: {
+    id: "rust",
+    name: "Rust",
+    fileExtension: ".rs",
+  },
+  cpp: {
+    id: "cpp",
+    name: "C++",
+    fileExtension: ".cpp",
+  },
 } as const;
 
 export const DEFAULT_LANGUAGE = LANGUAGES.javascript;

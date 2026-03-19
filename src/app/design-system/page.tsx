@@ -16,9 +16,7 @@ export default function ComponentsPage() {
     <div className="min-h-screen bg-bg-page p-8">
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold font-mono text-text-primary">
-            $ ui_components
-          </h1>
+          <h1 className="text-4xl font-bold font-mono text-text-primary">$ ui_components</h1>
           <p className="text-lg text-text-secondary">
             All available UI components with their variants and configurations
           </p>
@@ -28,7 +26,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // button_component
+              {/* score_ring_component */}
             </h2>
             <p className="text-text-secondary">
               Interactive button component with multiple variants, sizes, and states
@@ -37,9 +35,7 @@ export default function ComponentsPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold font-mono text-text-primary">
-                Primary Variant
-              </h3>
+              <h3 className="text-lg font-semibold font-mono text-text-primary">Primary Variant</h3>
               <p className="text-sm text-text-secondary">
                 Default interactive button with green accent
               </p>
@@ -79,12 +75,8 @@ export default function ComponentsPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold font-mono text-text-primary">
-                Link Variant
-              </h3>
-              <p className="text-sm text-text-secondary">
-                Minimal button with border outline
-              </p>
+              <h3 className="text-lg font-semibold font-mono text-text-primary">Link Variant</h3>
+              <p className="text-sm text-text-secondary">Minimal button with border outline</p>
             </div>
             <div className="flex flex-wrap gap-4 p-6 bg-bg-surface rounded-lg border border-border-primary">
               <Button variant="outline">$ view_all &gt;&gt;</Button>
@@ -105,12 +97,8 @@ export default function ComponentsPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <h3 className="text-lg font-semibold font-mono text-text-primary">
-                Ghost Variant
-              </h3>
-              <p className="text-sm text-text-secondary">
-                Invisible button with hover effect
-              </p>
+              <h3 className="text-lg font-semibold font-mono text-text-primary">Ghost Variant</h3>
+              <p className="text-sm text-text-secondary">Invisible button with hover effect</p>
             </div>
             <div className="flex flex-wrap gap-4 p-6 bg-bg-surface rounded-lg border border-border-primary">
               <Button variant="ghost">Ghost Button</Button>
@@ -130,14 +118,10 @@ export default function ComponentsPage() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold font-mono text-text-primary">
-              Button States
-            </h3>
+            <h3 className="text-lg font-semibold font-mono text-text-primary">Button States</h3>
 
             <div className="space-y-3">
-              <h4 className="font-mono text-sm font-medium text-text-secondary">
-                Disabled
-              </h4>
+              <h4 className="font-mono text-sm font-medium text-text-secondary">Disabled</h4>
               <div className="flex flex-wrap gap-4 p-6 bg-bg-surface rounded-lg border border-border-primary">
                 <Button disabled>Primary</Button>
                 <Button variant="secondary" disabled>
@@ -153,9 +137,7 @@ export default function ComponentsPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="font-mono text-sm font-medium text-text-secondary">
-                Loading
-              </h4>
+              <h4 className="font-mono text-sm font-medium text-text-secondary">Loading</h4>
               <div className="flex flex-wrap gap-4 p-6 bg-bg-surface rounded-lg border border-border-primary">
                 <Button isLoading>Primary</Button>
                 <Button variant="secondary" isLoading>
@@ -172,9 +154,7 @@ export default function ComponentsPage() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold font-mono text-text-primary">
-              Custom Styling
-            </h3>
+            <h3 className="text-lg font-semibold font-mono text-text-primary">Custom Styling</h3>
             <div className="flex flex-col gap-4 p-6 bg-bg-surface rounded-lg border border-border-primary">
               <Button className="w-full">Full Width</Button>
               <Button className="rounded-full">Pill Button</Button>
@@ -187,7 +167,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // badge_component
+              {/* badge_component */}
             </h2>
             <p className="text-text-secondary">
               Status indicator with colored dot and optional label
@@ -206,7 +186,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // card_component
+              {/* card_component */}
             </h2>
             <p className="text-text-secondary">
               Container with header badge, title, description, and content
@@ -236,7 +216,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // diff_line_component
+              {/* diff_line_component */}
             </h2>
             <p className="text-text-secondary">
               Code diff visualization with add/remove/context indicators
@@ -255,7 +235,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // table_row_component
+              {/* toggle_component */}
             </h2>
             <p className="text-text-secondary">
               Flexible row component for table-like layouts with customizable columns
@@ -267,14 +247,14 @@ export default function ComponentsPage() {
               cells={[
                 {
                   content: (
-                    <span className="font-mono text-sm font-bold text-text-primary">
-                      #1
-                    </span>
+                    <span className="font-mono text-sm font-bold text-text-primary">#1</span>
                   ),
                   width: "40px",
                 },
                 {
-                  content: <span className="font-mono text-sm font-bold text-accent-red">1250</span>,
+                  content: (
+                    <span className="font-mono text-sm font-bold text-accent-red">1250</span>
+                  ),
                   width: "60px",
                 },
                 {
@@ -286,9 +266,7 @@ export default function ComponentsPage() {
                 },
                 {
                   content: (
-                    <span className="font-mono text-sm text-text-secondary">
-                      JavaScript
-                    </span>
+                    <span className="font-mono text-sm text-text-secondary">JavaScript</span>
                   ),
                   width: "100px",
                 },
@@ -298,9 +276,7 @@ export default function ComponentsPage() {
               cells={[
                 {
                   content: (
-                    <span className="font-mono text-sm font-bold text-text-primary">
-                      #2
-                    </span>
+                    <span className="font-mono text-sm font-bold text-text-primary">#2</span>
                   ),
                   width: "40px",
                 },
@@ -317,9 +293,7 @@ export default function ComponentsPage() {
                 },
                 {
                   content: (
-                    <span className="font-mono text-sm text-text-secondary">
-                      TypeScript
-                    </span>
+                    <span className="font-mono text-sm text-text-secondary">TypeScript</span>
                   ),
                   width: "100px",
                 },
@@ -329,9 +303,7 @@ export default function ComponentsPage() {
               cells={[
                 {
                   content: (
-                    <span className="font-mono text-sm font-bold text-text-primary">
-                      #3
-                    </span>
+                    <span className="font-mono text-sm font-bold text-text-primary">#3</span>
                   ),
                   width: "40px",
                 },
@@ -347,11 +319,7 @@ export default function ComponentsPage() {
                   ),
                 },
                 {
-                  content: (
-                    <span className="font-mono text-sm text-text-secondary">
-                      Python
-                    </span>
-                  ),
+                  content: <span className="font-mono text-sm text-text-secondary">Python</span>,
                   width: "100px",
                 },
               ]}
@@ -363,7 +331,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // toggle_component
+              {/* toggle_component */}
             </h2>
             <p className="text-text-secondary">
               Switch component with optional label and dynamic styling
@@ -382,9 +350,7 @@ export default function ComponentsPage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-mono text-text-secondary mb-3">
-                Interactive
-              </h3>
+              <h3 className="text-sm font-mono text-text-secondary mb-3">Interactive</h3>
               <Toggle checked={roastMode} onCheckedChange={setRoastMode} label="roast mode" />
             </div>
 
@@ -399,7 +365,7 @@ export default function ComponentsPage() {
         <section className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold font-mono text-text-primary">
-              // score_ring_component
+              {/* card_component */}
             </h2>
             <p className="text-text-secondary">
               Circular score visualization with gradient arc and centered text
@@ -435,9 +401,7 @@ export default function ComponentsPage() {
           <h2 className="text-2xl font-bold font-mono text-text-primary">$ usage_guide</h2>
 
           <div className="bg-bg-surface p-6 rounded-lg border border-border-primary">
-            <h3 className="font-mono font-semibold text-text-primary mb-4">
-              Importing Components
-            </h3>
+            <h3 className="font-mono font-semibold text-text-primary mb-4">Importing Components</h3>
             <pre className="bg-bg-input text-text-primary p-4 rounded overflow-x-auto text-sm font-mono">
               {`import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -450,9 +414,7 @@ import { ScoreRing } from "@/components/ui/score-ring";`}
           </div>
 
           <div className="bg-bg-surface p-6 rounded-lg border border-border-primary">
-            <h3 className="font-mono font-semibold text-text-primary mb-4">
-              All Props Reference
-            </h3>
+            <h3 className="font-mono font-semibold text-text-primary mb-4">All Props Reference</h3>
             <pre className="bg-bg-input text-text-primary p-4 rounded overflow-x-auto text-sm font-mono">
               {`// Button
 variant="primary" | "secondary" | "outline" | "ghost"

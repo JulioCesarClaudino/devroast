@@ -10,7 +10,7 @@ export const HeroSection = () => {
         <span className="text-text-primary">paste your code. get roasted.</span>
       </h1>
       <p className="font-mono text-sm sm:text-base text-text-secondary max-w-2xl">
-        // drop your code below and we'll rate it — brutally honest or full roast mode
+        {/* drop your code below and we&apos;ll rate it — brutally honest or full roast mode */}
       </p>
     </div>
   );

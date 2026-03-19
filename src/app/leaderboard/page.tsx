@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { LeaderboardEntry, type LeaderboardEntryData } from "@/components/home/leaderboard-entry";
 
 export const metadata: Metadata = {
@@ -141,7 +142,14 @@ export default function LeaderboardPage() {
       <div className="w-full px-4 sm:px-6 md:px-10 pb-12 sm:pb-16 md:pb-20">
         <div className="mx-auto max-w-6xl flex flex-col gap-5">
           {LEADERBOARD_DATA.map((entry) => (
-            <LeaderboardEntry key={entry.rank} entry={entry} />
+            <Suspense
+              key={entry.rank}
+              fallback={
+                <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page h-48 animate-pulse" />
+              }
+            >
+              <LeaderboardEntry entry={entry} />
+            </Suspense>
           ))}
         </div>
       </div>

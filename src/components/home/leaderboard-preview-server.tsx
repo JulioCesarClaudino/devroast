@@ -15,7 +15,7 @@ export async function LeaderboardPreview() {
       <div className="w-full flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-lg sm:text-xl font-bold text-text-primary">
-            <span className="text-accent-amber">//</span> shame_leaderboard
+            {/* shame_leaderboard */}
           </h2>
           <Link
             href="/leaderboard"
@@ -26,7 +26,7 @@ export async function LeaderboardPreview() {
         </div>
 
         <p className="font-mono text-xs sm:text-sm text-text-secondary">
-          // the worst code on the internet, ranked by shame
+          {/* the worst code on the internet, ranked by shame */}
         </p>
 
         <div className="w-full p-4 bg-bg-input rounded-lg border border-border-primary">
@@ -45,7 +45,7 @@ export async function LeaderboardPreview() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="font-mono text-lg sm:text-xl font-bold text-text-primary">
-          <span className="text-accent-amber">//</span> shame_leaderboard
+          {/* shame_leaderboard */}
         </h2>
         <Link
           href="/leaderboard"
@@ -57,7 +57,7 @@ export async function LeaderboardPreview() {
 
       {/* Description */}
       <p className="font-mono text-xs sm:text-sm text-text-secondary">
-        // the worst code on the internet, ranked by shame
+        {/* the worst code on the internet, ranked by shame */}
       </p>
 
       {/* Table */}

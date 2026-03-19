@@ -11,7 +11,8 @@ const DEFAULT_CODE = "// paste your code here...";
 
 export const CodeEditor = () => {
   const [code, setCode] = React.useState(DEFAULT_CODE);
-  const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(DEFAULT_LANGUAGE);
+  const [selectedLanguage, setSelectedLanguage] =
+    React.useState<Language | null>(null);
   const [userSelectedLanguage, setUserSelectedLanguage] = React.useState(false);
   const [highlightedHtml, setHighlightedHtml] = React.useState<string>("");
   const [theme, setTheme] = React.useState<"light" | "dark">("dark");
@@ -21,17 +22,20 @@ export const CodeEditor = () => {
   const highlightedRef = React.useRef<HTMLDivElement>(null);
 
   // Sincronizar scroll
-  const handleScroll = React.useCallback((e: React.UIEvent<HTMLTextAreaElement>) => {
-    if (highlightedRef.current) {
-      const scrollTop = e.currentTarget.scrollTop;
-      const scrollLeft = e.currentTarget.scrollLeft;
+  const handleScroll = React.useCallback(
+    (e: React.UIEvent<HTMLTextAreaElement>) => {
+      if (highlightedRef.current) {
+        const scrollTop = e.currentTarget.scrollTop;
+        const scrollLeft = e.currentTarget.scrollLeft;
 
-      highlightedRef.current.scrollTop = scrollTop;
-      highlightedRef.current.scrollLeft = scrollLeft;
+        highlightedRef.current.scrollTop = scrollTop;
+        highlightedRef.current.scrollLeft = scrollLeft;
 
-      console.log("Scroll sincronizado:", { scrollTop, scrollLeft });
-    }
-  }, []);
+        console.log("Scroll sincronizado:", { scrollTop, scrollLeft });
+      }
+    },
+    [],
+  );
 
   // Handler para mudança de linguagem (marca como seleção manual)
   const handleLanguageChange = React.useCallback((language: Language) => {
@@ -44,7 +48,7 @@ export const CodeEditor = () => {
     if (userSelectedLanguage) return; // Não detectar se usuário selecionou manualmente
 
     const detected = detectLanguage(code);
-    if (detected && detected.id !== selectedLanguage.id) {
+    if (detected && detected.id !== selectedLanguage?.id) {
       setSelectedLanguage(detected);
       console.log("Linguagem auto-detectada:", detected.name);
     }
@@ -58,19 +62,15 @@ export const CodeEditor = () => {
 
     try {
       const shikiTheme = theme === "light" ? "github-light" : "github-dark";
+      const languageId = selectedLanguage?.id || DEFAULT_LANGUAGE.id;
       const fullHtml = highlighter.codeToHtml(code, {
-        lang: selectedLanguage.id,
+        lang: languageId,
         theme: shikiTheme,
       });
 
       // Extrair conteúdo da tag <code>
       const match = fullHtml.match(/<code>([\s\S]*?)<\/code>/);
       const innerHtml = match ? match[1] : "";
-
-      console.log("Shiki HTML gerado:", {
-        fullHtml: fullHtml.substring(0, 100),
-        innerHtml: innerHtml.substring(0, 100),
-      });
 
       setHighlightedHtml(innerHtml);
     } catch (error) {
@@ -107,7 +107,9 @@ export const CodeEditor = () => {
             {theme === "light" ? "☀️ Light" : "🌙 Dark"}
           </button>
           {!isInitialized && (
-            <p className="text-xs text-text-secondary">Carregando highlighter...</p>
+            <p className="text-xs text-text-secondary">
+              Carregando highlighter...
+            </p>
           )}
         </div>
       </div>
@@ -126,7 +128,10 @@ export const CodeEditor = () => {
           {/* Line Numbers */}
           <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none overflow-hidden">
             {lines.map((_, index) => (
-              <div key={index} className="font-mono text-xs text-text-tertiary leading-6 h-6">
+              <div
+                key={index}
+                className="font-mono text-xs text-text-tertiary leading-6 h-6"
+              >
                 {index + 1}
               </div>
             ))}
@@ -151,7 +156,11 @@ export const CodeEditor = () => {
             />
 
             {/* Highlighted Code (Behind - flex-1) */}
-            <HighlightedCode ref={highlightedRef} html={highlightedHtml} theme={theme} />
+            <HighlightedCode
+              ref={highlightedRef}
+              html={highlightedHtml}
+              theme={theme}
+            />
           </div>
         </div>
       </div>

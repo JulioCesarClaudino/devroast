@@ -16,7 +16,7 @@ export const ActionsBar = () => {
         <div className="flex items-center gap-3">
           <Toggle checked={roastMode} onCheckedChange={setRoastMode} label="roast mode" />
           <span className="hidden sm:inline font-mono text-xs text-text-tertiary">
-            // maximum sarcasm enabled
+            {/* maximum sarcasm enabled */}
           </span>
         </div>
 

@@ -13,7 +13,7 @@ interface UseHighlighterReturn {
 
 /**
  * Hook para gerenciar a instância do Shiki Highlighter
- * Inicializa com WASM e precarrega 3 linguagens (JavaScript, Python, TypeScript)
+ * Inicializa com WASM e precarrega 8 linguagens (JavaScript, Python, TypeScript, PHP, Java, Go, Rust, C++)
  *
  * @returns Objeto com highlighter, estados e handlers
  */
@@ -30,7 +30,7 @@ export function useHighlighter(): UseHighlighterReturn {
       try {
         const highlighter = await createHighlighter({
           themes: ["github-light", "github-dark"],
-          langs: ["javascript", "python", "typescript"],
+          langs: ["javascript", "python", "typescript", "php", "java", "go", "rust", "cpp"],
         });
 
         if (isMounted) {

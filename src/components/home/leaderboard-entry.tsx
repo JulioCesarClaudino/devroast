@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
@@ -15,17 +13,13 @@ interface LeaderboardEntryProps {
   entry: LeaderboardEntryData;
 }
 
-export const LeaderboardEntry = React.forwardRef<
-  HTMLDivElement,
-  LeaderboardEntryProps
->(({ entry }, ref) => {
+export const LeaderboardEntry = async ({
+  entry,
+}: LeaderboardEntryProps) => {
   const isFirstRank = entry.rank === 1;
 
   return (
-    <div
-      ref={ref}
-      className="border border-border-primary rounded-lg overflow-hidden bg-bg-page"
-    >
+    <div className="border border-border-primary rounded-lg overflow-hidden bg-bg-page">
       {/* Meta Row */}
       <div className="flex items-center justify-between h-12 px-5 border-b border-border-primary bg-bg-input">
         <div className="flex items-center gap-6">
@@ -73,6 +67,4 @@ export const LeaderboardEntry = React.forwardRef<
       </div>
     </div>
   );
-});
-
-LeaderboardEntry.displayName = "LeaderboardEntry";
+};
