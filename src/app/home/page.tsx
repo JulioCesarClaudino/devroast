@@ -5,6 +5,7 @@ import { CodeEditor } from "@/components/home/code-editor";
 import { ActionsBar } from "@/components/home/actions-bar";
 import { FooterHint } from "@/components/home/footer-hint";
 import { LeaderboardPreview } from "@/components/home/leaderboard-preview";
+import { CodeEditorProvider } from "@/lib/context/CodeEditorContext";
 
 export default function HomePage() {
   return (
@@ -17,15 +18,18 @@ export default function HomePage() {
             <HeroSection />
           </section>
 
-          {/* Code Editor */}
-          <section className="flex justify-center">
-            <CodeEditor />
-          </section>
+          {/* Code Editor with Provider */}
+          <CodeEditorProvider>
+            {/* Code Editor */}
+            <section className="flex justify-center">
+              <CodeEditor />
+            </section>
 
-          {/* Actions Bar */}
-          <section className="flex justify-center">
-            <ActionsBar />
-          </section>
+            {/* Actions Bar */}
+            <section className="flex justify-center">
+              <ActionsBar />
+            </section>
+          </CodeEditorProvider>
 
           {/* Footer Hint */}
           <section>

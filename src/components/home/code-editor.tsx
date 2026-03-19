@@ -6,11 +6,13 @@ import { LanguageSelector } from "@/components/home/language-selector";
 import { DEFAULT_LANGUAGE, type Language } from "@/lib/constants/languages";
 import { useHighlighter } from "@/lib/hooks/useHighlighter";
 import { detectLanguage } from "@/lib/utils/detectLanguage";
+import { useCodeEditor } from "@/lib/context/CodeEditorContext";
 
 const DEFAULT_CODE = "// paste your code here...";
 
 export const CodeEditor = () => {
-  const [code, setCode] = React.useState(DEFAULT_CODE);
+  const { code, setCode, characterCount, isLimitExceeded, characterLimit } =
+    useCodeEditor();
   const [selectedLanguage, setSelectedLanguage] =
     React.useState<Language | null>(null);
   const [userSelectedLanguage, setUserSelectedLanguage] = React.useState(false);
@@ -123,46 +125,57 @@ export const CodeEditor = () => {
           <div className="h-3 w-3 rounded-full bg-accent-green" />
         </div>
 
-        {/* Code Content Container */}
-        <div className="flex overflow-hidden flex-1 bg-bg-input">
-          {/* Line Numbers */}
-          <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none overflow-hidden">
-            {lines.map((_, index) => (
-              <div
-                key={index}
-                className="font-mono text-xs text-text-tertiary leading-6 h-6"
-              >
-                {index + 1}
-              </div>
-            ))}
-          </div>
+       {/* Code Content Container */}
+         <div className="flex overflow-hidden flex-1 bg-bg-input relative">
+           {/* Line Numbers */}
+           <div className="flex-shrink-0 w-12 bg-bg-surface border-r border-border-primary px-2 py-4 text-right select-none overflow-hidden">
+             {lines.map((_, index) => (
+               <div
+                 key={index}
+                 className="font-mono text-xs text-text-tertiary leading-6 h-6"
+               >
+                 {index + 1}
+               </div>
+             ))}
+           </div>
 
-          {/* Wrapper para textarea e highlighted code */}
-          <div className="flex flex-1 relative overflow-hidden">
-            {/* Textarea (On Top - Transparent, Absolute) */}
-            <textarea
-              ref={textareaRef}
-              value={code}
-              onChange={handleInput}
-              onScroll={handleScroll}
-              className="absolute inset-0 p-4 font-mono text-sm text-transparent bg-transparent border-none outline-none resize-none overflow-auto"
-              style={{
-                whiteSpace: "pre-wrap",
-                wordWrap: "break-word",
-                lineHeight: "1.5rem",
-                caretColor: theme === "light" ? "#000000" : "#ffffff",
-              }}
-              spellCheck="false"
-            />
+           {/* Wrapper para textarea e highlighted code */}
+           <div className="flex flex-1 relative overflow-hidden">
+             {/* Textarea (On Top - Transparent, Absolute) */}
+             <textarea
+               ref={textareaRef}
+               value={code}
+               onChange={handleInput}
+               onScroll={handleScroll}
+               className="absolute inset-0 p-4 font-mono text-sm text-transparent bg-transparent border-none outline-none resize-none overflow-auto"
+               style={{
+                 whiteSpace: "pre-wrap",
+                 wordWrap: "break-word",
+                 lineHeight: "1.5rem",
+                 caretColor: theme === "light" ? "#000000" : "#ffffff",
+               }}
+               spellCheck="false"
+             />
 
-            {/* Highlighted Code (Behind - flex-1) */}
-            <HighlightedCode
-              ref={highlightedRef}
-              html={highlightedHtml}
-              theme={theme}
-            />
-          </div>
-        </div>
+             {/* Highlighted Code (Behind - flex-1) */}
+             <HighlightedCode
+               ref={highlightedRef}
+               html={highlightedHtml}
+               theme={theme}
+             />
+
+             {/* Character Counter - Bottom Right */}
+             <div
+               className={`absolute bottom-2 right-2 px-2 py-1 rounded text-xs font-mono font-semibold ${
+                 isLimitExceeded
+                   ? "bg-accent-red/20 text-accent-red"
+                   : "bg-text-tertiary/10 text-text-tertiary"
+               }`}
+             >
+               {characterCount}/{characterLimit}
+             </div>
+           </div>
+         </div>
       </div>
     </div>
   );
